@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aither AI | Climate Action Advisor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="logo">Aither AI</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#calculator">Calculator</a>
+            <a href="#tips">Tips</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Hero section -->
+        <section class="hero" id="home">
+
+            <div class="hero-text">
+                <p class="small-title">AI FOR CLIMATE ACTION</p>
+
+                <h1>
+                    Understand your
+                    <span>carbon footprint.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Aither AI helps you estimate your yearly carbon footprint
+                    and suggests simple actions that can reduce it.
+                </p>
+
+                <a href="#calculator" class="main-button">
+                    Check My Footprint
+                </a>
+            </div>
+
+            <div class="hero-card">
+                <div class="circle">
+                    AITHER
+                </div>
+
+                <h3>Your daily choices matter</h3>
+
+                <p>
+                    Travel, electricity, food and shopping all contribute
+                    to your overall footprint.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Calculator -->
+        <section class="section" id="calculator">
+
+            <div class="section-heading">
+                <p class="small-title">CARBON CALCULATOR</p>
+
+                <h2>Tell us about your lifestyle</h2>
+
+                <p>
+                    Enter approximate values. This prototype uses
+                    illustrative emission factors for demonstration.
+                </p>
+            </div>
+
+
+            <div class="calculator-box">
+
+                <div class="form-column">
+
+                    <h3>1. Travel</h3>
+
+                    <label for="travelMode">Main travel mode</label>
+
+                    <select id="travelMode">
+                        <option value="car">Car</option>
+                        <option value="bike">Motorbike</option>
+                        <option value="bus">Bus</option>
+                        <option value="train">Train</option>
+                        <option value="walk">Walking / Cycling</option>
+                    </select>
+
+
+                    <label for="travelDistance">
+                        Average distance travelled per day (km)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="travelDistance"
+                        min="0"
+                        placeholder="Example: 20"
+                    >
+
+
+                    <h3>2. Electricity</h3>
+
+                    <label for="electricity">
+                        Monthly electricity use (kWh)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="electricity"
+                        min="0"
+                        placeholder="Example: 150"
+                    >
+
+
+                    <h3>3. Food</h3>
+
+                    <label for="diet">Typical diet</label>
+
+                    <select id="diet">
+                        <option value="mixed">Mixed diet</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Mostly plant-based</option>
+                    </select>
+
+
+                    <h3>4. Shopping</h3>
+
+                    <label for="shopping">
+                        Approximate monthly shopping spend (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="shopping"
+                        min="0"
+                        placeholder="Example: 5000"
+                    >
+
+
+                    <div class="form-buttons">
+
+                        <button
+                            class="calculate-button"
+                            onclick="calculateFootprint()"
+                        >
+                            Analyse My Footprint
+                        </button>
+
+                        <button
+                            class="sample-button"
+                            onclick="loadSample()"
+                        >
+                            Try Sample Data
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Result side -->
+                <div class="result-column">
+
+                    <div class="result-header">
+                        <p class="small-title">AITHER AI RESULT</p>
+
+                        <h2 id="totalResult">
+                            0.00 tCO₂e
+                        </h2>
+
+                        <p id="resultMessage">
+                            Enter your details to see an estimate.
+                        </p>
+                    </div>
+
+
+                    <div class="breakdown">
+
+                        <div class="breakdown-item">
+                            <div class="item-top">
+                                <span>Travel</span>
+                                <strong id="travelResult">0.00</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div id="travelBar"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="breakdown-item">
+                            <div class="item-top">
+                                <span>Electricity</span>
+                                <strong id="electricityResult">0.00</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div id="electricityBar"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="breakdown-item">
+                            <div class="item-top">
+                                <span>Food</span>
+                                <strong id="foodResult">0.00</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div id="foodBar"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="breakdown-item">
+                            <div class="item-top">
+                                <span>Shopping</span>
+                                <strong id="shoppingResult">0.00</strong>
+                            </div>
+
+                            <div class="bar">
+                                <div id="shoppingBar"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="ai-box">
+
+                        <h3>Aither's Suggestions</h3>
+
+                        <div id="recommendations">
+                            <p>
+                                Your personalized recommendations will
+                                appear here.
+                            </p>
+                        </div>
+                        <div id="sourcesBox" class="sources-box"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <p class="note">
+                Note: The values used in this student prototype are
+                illustrative and are not official emission factors.
+            </p>
+
+        </section>
+
+
+        <!-- AI workflow -->
+        <section class="section light-section">
+
+            <div class="section-heading">
+                <p class="small-title">HOW IT WORKS</p>
+
+                <h2>From information to action</h2>
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+                    <span>01</span>
+                    <h3>Collect</h3>
+                    <p>
+                        The user enters basic information about travel,
+                        electricity, food and shopping.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <span>02</span>
+                    <h3>Analyse</h3>
+                    <p>
+                        Aither estimates the contribution of each category
+                        using the prototype calculation logic.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <span>03</span>
+                    <h3>Understand</h3>
+                    <p>
+                        The largest sources of estimated emissions are
+                        identified.
+                    </p>
+                </div>
+
+
+                <div class="step">
+                    <span>04</span>
+                    <h3>Act</h3>
+                    <p>
+                        Personalized recommendations are generated based
+                        on the user's inputs.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Tips -->
+        <section class="section" id="tips">
+
+            <div class="section-heading">
+                <p class="small-title">CLIMATE ACTION</p>
+
+                <h2>Small changes can help</h2>
+
+                <p>
+                    Aither focuses on practical actions instead of
+                    complicated lifestyle changes.
+                </p>
+            </div>
+
+
+            <div class="tips-grid">
+
+                <div class="tip-card">
+                    <span>01</span>
+                    <h3>Travel smarter</h3>
+                    <p>
+                        Combine trips where possible and consider public
+                        transport for suitable journeys.
+                    </p>
+                </div>
+
+
+                <div class="tip-card">
+                    <span>02</span>
+                    <h3>Use energy carefully</h3>
+                    <p>
+                        Switch off unused appliances and pay attention to
+                        unnecessary electricity consumption.
+                    </p>
+                </div>
+
+
+                <div class="tip-card">
+                    <span>03</span>
+                    <h3>Choose sustainable food</h3>
+                    <p>
+                        Increasing plant-based food choices can be one way
+                        to reduce the impact of everyday meals.
+                    </p>
+                </div>
+
+
+                <div class="tip-card">
+                    <span>04</span>
+                    <h3>Buy thoughtfully</h3>
+                    <p>
+                        Avoid unnecessary purchases and look for durable
+                        products that can be used for longer.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- About -->
+        <section class="section about-section" id="about">
+
+            <div class="about-content">
+
+                <div>
+                    <p class="small-title">ABOUT AITHER AI</p>
+
+                    <h2>
+                        Making climate action more understandable.
+                    </h2>
+                </div>
+
+                <div>
+                    <p>
+                        Aither AI is a student project created to show how
+                        artificial intelligence and simple digital tools
+                        can help people understand everyday environmental
+                        choices.
+                    </p>
+
+                    <p>
+                        The idea is not to replace scientific carbon
+                        accounting. Instead, it works as a simple awareness
+                        and decision-support prototype.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="responsible-box">
+
+                <h3>Responsible AI</h3>
+
+                <div class="responsible-grid">
+
+                    <div>
+                        <strong>Fairness</strong>
+                        <p>
+                            Recommendations should consider different
+                            lifestyles and circumstances.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Transparency</strong>
+                        <p>
+                            Estimates are clearly presented as approximate
+                            prototype calculations.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Privacy</strong>
+                        <p>
+                            The prototype does not require personal
+                            identifying information.
+                        </p>
+                    </div>
+
+                    <div>
+                        <strong>Ethics</strong>
+                        <p>
+                            Suggestions are designed to inform users
+                            without blaming or shaming them.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            <strong>Aither AI</strong>
+            <p>Personalized Carbon Footprint & Climate Action Advisor</p>
+        </div>
+
+        <p>AI for Sustainability</p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

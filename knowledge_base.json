@@ -1,0 +1,67 @@
+[
+    {
+        "id": "cea-electricity",
+        "topic": "electricity",
+        "title": "CEA Indian Grid Emission Factor",
+        "source": "Central Electricity Authority, CO2 Baseline Database Version 21.0",
+        "year": "FY 2024-25",
+        "factor": "0.710 kg CO2 per kWh",
+        "text": "The weighted-average emission factor for the Indian grid, including renewable generation, is 0.710 tCO2/MWh for FY 2024-25, equivalent to 0.710 kg CO2/kWh."
+    },
+    {
+        "id": "car",
+        "topic": "travel",
+        "title": "Average Car Reference Factor",
+        "source": "UK Government GHG Conversion Factors 2023",
+        "year": "2023",
+        "factor": "0.16664 kg CO2e/km",
+        "text": "The average car, unknown fuel, reference factor is 0.16664 kg CO2e per kilometre."
+    },
+    {
+        "id": "motorbike",
+        "topic": "travel",
+        "title": "Average Motorbike Reference Factor",
+        "source": "UK Government GHG Conversion Factors 2023",
+        "year": "2023",
+        "factor": "0.11367 kg CO2e/km",
+        "text": "The average motorbike reference factor is approximately 0.11367 kg CO2e per kilometre."
+    },
+    {
+        "id": "bus",
+        "topic": "travel",
+        "title": "Average Local Bus Reference Factor",
+        "source": "UK Government GHG Conversion Factors 2023",
+        "year": "2023",
+        "factor": "0.10215 kg CO2e/passenger-km",
+        "text": "The average local bus reference factor is approximately 0.10215 kg CO2e per passenger kilometre."
+    },
+    {
+        "id": "train",
+        "topic": "travel",
+        "title": "National Rail Reference Factor",
+        "source": "UK Government GHG Conversion Factors 2023",
+        "year": "2023",
+        "factor": "0.03546 kg CO2e/passenger-km",
+        "text": "The national rail reference factor is approximately 0.03546 kg CO2e per passenger kilometre."
+    },
+    {
+        "id": "food",
+        "topic": "food",
+        "title": "Food Footprint Evidence",
+        "source": "Our World in Data, Environmental Impacts of Food Production",
+        "year": "Global dataset",
+        "factor": "Qualitative evidence",
+        "text": "Global food-system data show that meat and dairy products generally have higher greenhouse-gas footprints than plant-based foods. The dataset uses global averages and is based on the Poore and Nemecek meta-analysis."
+    },
+    {
+        "id": "shopping",
+        "topic": "shopping",
+        "title": "Shopping Calculation Note",
+        "source": "Aither AI prototype methodology",
+        "year": "Prototype",
+        "factor": "Scenario assumption",
+        "text": "The shopping estimate in this student prototype is a simplified spend-based assumption. It is not presented as an official India-specific carbon factor."
+    }
+
+
+]
